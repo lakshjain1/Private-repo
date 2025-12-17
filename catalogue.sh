@@ -61,7 +61,7 @@ rm -rf /app/* &>> $LOGFILE
 
 VALIDATE $? "/app directory cleaned"
 
-curl -L -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue.zip -y &>> $LOGFILE
+curl -L -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue.zip &>> $LOGFILE
 
 VALIDATE $? "Catalogue App Downloaded"
 
