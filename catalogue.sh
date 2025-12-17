@@ -57,7 +57,7 @@ fi
 
 VALIDATE $? "/app directory created"
 
-curl -L -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue.zip &>> $LOGFILE
+curl -L -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue.zip -y &>> $LOGFILE
 
 VALIDATE $? "Catalogue App Downloaded"
 
