@@ -88,4 +88,13 @@ VALIDATE $? "Catalogue Service Enabled"
 systemctl start catalogue &>> $LOGFILE
 VALIDATE $? "Catalogue Service Started"
 
-echo -e "$G Catalogue Setup Completed $N"
+cp /home/centos/Private-repo/mongodb.repo /etc/yum.repos.d/mongodb.repo &>> $LOGFILE
+
+yum install mongodb-org-shell -y &>> $LOGFILE
+
+VALIDATE $? "Mongodb Client Installed"
+
+mongo --host MONGODB-SERVER-IPADDRESS </app/schema/catalogue.js &>> $LOGFILE
+
+VALIDATE $? "Catalogue Schema Created"
+echo -e "$G Catalogue Service Setup Completed Successfully $N"
