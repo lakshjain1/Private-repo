@@ -55,7 +55,7 @@ cd /usr/share/nginx/html &>> $LOGFILE
 
 VALIDATE $? "Changed directory to nginx html"
 
-unzip /tmp/web.zip &>> $LOGFILE
+unzip /tmp/web &>> $LOGFILE
 
 VALIDATE $? "Web content unzipped"
 
