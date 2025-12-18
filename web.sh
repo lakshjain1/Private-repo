@@ -55,11 +55,11 @@ cd /usr/share/nginx/html &>> $LOGFILE
 
 VALIDATE $? "Changed directory to nginx html"
 
-unzip /tmp/web &>> $LOGFILE
+unzip -o /tmp/web.zip &>> $LOGFILE
 
 VALIDATE $? "Web content unzipped"
 
-cp /home/centos/Private-repo/roboshop.conf /etc/nginx/conf.d/roboshop.conf &>> $LOGFILE
+cp /home/centos/Private-repo/roboshop.conf /etc/nginx/default.d/roboshop.conf &>> $LOGFILE
 
 VALIDATE $? "Nginx config copied"
 
