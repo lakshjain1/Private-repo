@@ -95,7 +95,7 @@ yum install mysql -y   &>> $LOGFILE
 
 VALIDATE $? "MySQL Client Installed"
 
-mysql -h 172.31.17.119 -uroot -pRoboShop@1 < /app/schema/shipping.sql 
+mysql -h 172.31.17.119 -uroot -pRoboShop@1 < /app/db/*.sql 
 
 VALIDATE $? "Shipping Schema Created"
 
