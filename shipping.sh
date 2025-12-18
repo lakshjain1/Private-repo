@@ -91,4 +91,16 @@ systemctl start shipping &>> $LOGFILE
 
 VALIDATE $? "Shipping Service Started"
 
+yum install mysql -y   &>> $LOGFILE
+
+VALIDATE $? "MySQL Client Installed"
+
+mysql -h 172.31.17.119 -uroot -pRoboShop@1 < /app/schema/shipping.sql 
+
+VALIDATE $? "Shipping Schema Created"
+
+systemctl restart shipping &>> $LOGFILE
+
+VALIDATE $? "Shipping Service Restarted"
+
 echo -e "$G Shipping Service Setup Completed $N"
