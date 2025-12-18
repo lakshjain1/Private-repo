@@ -31,7 +31,7 @@ VALIDATE(){
     fi
 }
 
-yum install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y &>> $LOGFILE
+yum install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y --skip-broken &>> $LOGFILE
 
 VALIDATE $? "Remi Repo Installation"
 
