@@ -37,8 +37,6 @@ VALIDATE $? "Remi Repo Installation"
 
 yum module enable redis:remi-6.2 -y &>> $LOGFILE
 
-VALIDATE $? "Enable Redis Module"
-
 yum install redis -y &>> $LOGFILE
 
 VALIDATE $? "Redis Installation"
