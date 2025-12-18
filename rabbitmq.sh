@@ -30,3 +30,33 @@ VALIDATE(){
         echo -e "$2 ... $G SUCCESS $N"
     fi
 }
+
+curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash &>> $LOGFILE
+
+VALIDATE $? "Setting up Erlang Repository"
+
+curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash &>> $LOGFILE
+
+VALIDATE $? "Setting up RabbitMQ Repository"
+
+yum install rabbitmq-server -y &>> $LOGFILE
+
+VALIDATE $? "Installing RabbitMQ Server"
+
+systemctl enable rabbitmq-server &>> $LOGFILE
+
+VALIDATE $? "Enabling RabbitMQ Service"
+
+systemctl start rabbitmq-server &>> $LOGFILE
+
+VALIDATE $? "Starting RabbitMQ Service"
+
+rabbitmqctl add_user roboshop roboshop123 &>> $LOGFILE
+
+VALIDATE $? "Adding RabbitMQ User"
+
+rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" &>> $LOGFILE
+
+VALIDATE $? "Setting Permissions for RabbitMQ User"
+
+echo -e "$G RabbitMQ Installation Completed $N"
