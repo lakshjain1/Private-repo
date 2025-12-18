@@ -88,7 +88,9 @@ VALIDATE $? "Catalogue Service Enabled"
 systemctl start catalogue &>> $LOGFILE
 VALIDATE $? "Catalogue Service Started"
 
-cp /home/centos/Private-repo/mongodb.repo /etc/yum.repos.d/mongodb.repo &>> $LOGFILE
+cp /home/centos/Private-repo/mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE
+
+VALIDATE $? "Mongodb Repo Copied"
 
 yum install mongodb-org-shell -y &>> $LOGFILE
 
