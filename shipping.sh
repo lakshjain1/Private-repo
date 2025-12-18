@@ -75,7 +75,7 @@ VALIDATE $? "Building Shipping Service Code"
 
 mv target/shipping-1.0.jar shipping.jar &>> $LOGFILE
 
-cp /home/centos/Private/shipping.service /etc/systemd/system/shipping.service &>> $LOGFILE
+cp /home/centos/Private-repo/shipping.service /etc/systemd/system/shipping.service &>> $LOGFILE
 
 VALIDATE $? "Shipping Service File Copied"
 
