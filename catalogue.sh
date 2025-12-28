@@ -96,7 +96,7 @@ yum install mongodb-org-shell -y &>> $LOGFILE
 
 VALIDATE $? "Mongodb Client Installed"
 
-mongo --host 172.31.30.108 </app/schema/catalogue.js &>> $LOGFILE
+mongo --host 172.31.3.34 </app/schema/catalogue.js &>> $LOGFILE
 
 VALIDATE $? "Catalogue Schema Created"
 echo -e "$G Catalogue Service Setup Completed Successfully $N"

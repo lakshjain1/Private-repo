@@ -95,7 +95,7 @@ yum install mysql -y   &>> $LOGFILE
 
 VALIDATE $? "MySQL Client Installed"
 
-chmod 600 ~/.my.cnf
+chmod 600 /home/centos/Private-repo/.my.cnf
 
 mysql < /app/db/schema.sql &>> $LOGFILE
 
