@@ -97,15 +97,14 @@ VALIDATE $? "MySQL Client Installed"
 
 chmod 600 /home/centos/Private-repo/.my.cnf
 
-mysql < /app/db/schema.sql &>> $LOGFILE
+mysql --defaults-file=/home/centos/Private-repo/.my.cnf < /app/db/schema.sql &>> $LOGFILE
 
 VALIDATE $? "Shipping Schema Created"
 
-mysql < /app/db/schema.sql &>> $LOGFILE
-
+mysql --defaults-file=/home/centos/Private-repo/.my.cnf < /app/db/app-user.sql &>> $LOGFILE
 VALIDATE $? "Shipping Schema Created"
 
-mysql < /app/db/schema.sql &>> $LOGFILE
+mysql --defaults-file=/home/centos/Private-repo/.my.cnf < /app/db/master-data.sql &>> $LOGFILE
 
 VALIDATE $? "Shipping Schema Created"
 
