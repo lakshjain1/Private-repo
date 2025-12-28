@@ -102,11 +102,12 @@ mysql --defaults-file=/home/centos/Private-repo/.my.cnf < /app/db/schema.sql &>>
 VALIDATE $? "Shipping Schema Created"
 
 mysql --defaults-file=/home/centos/Private-repo/.my.cnf < /app/db/app-user.sql &>> $LOGFILE
-VALIDATE $? "Shipping Schema Created"
+
+VALIDATE $? "Shipping app-user Created"
 
 mysql --defaults-file=/home/centos/Private-repo/.my.cnf < /app/db/master-data.sql &>> $LOGFILE
 
-VALIDATE $? "Shipping Schema Created"
+VALIDATE $? "Shipping Master Data Created"
 
 systemctl restart shipping &>> $LOGFILE
 
