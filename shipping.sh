@@ -95,7 +95,17 @@ yum install mysql -y   &>> $LOGFILE
 
 VALIDATE $? "MySQL Client Installed"
 
-mysql -h 172.31.17.119 -uroot --password=RoboShop@1 < /app/db/schema.sql &>> $LOGFILE
+chmod 600 ~/.my.cnf
+
+mysql < /app/db/schema.sql &>> $LOGFILE
+
+VALIDATE $? "Shipping Schema Created"
+
+mysql < /app/db/schema.sql &>> $LOGFILE
+
+VALIDATE $? "Shipping Schema Created"
+
+mysql < /app/db/schema.sql &>> $LOGFILE
 
 VALIDATE $? "Shipping Schema Created"
 
